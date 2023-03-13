@@ -4,18 +4,25 @@ public class BinarySearch {
 
 	static int search(int a, int[] selectionSort, int Lx, int Hx) {
 		int arLength = (Lx + Hx) / 2;
+		//쌤버전
+		if(Lx > Hx) return -1;
+		
+		if(a == selectionSort[arLength]) return arLength + 1;
+		else if(a < selectionSort[arLength] ) Hx = arLength - 1;
+		else Lx = arLength + 1;
 
-		if(Lx > Hx) {
-			return -1;
-		}else if (a < selectionSort[arLength]) {
-			Hx = arLength - 1;
-		}else{
-			Lx = arLength + 1;
-		}
-			
-		if(a == selectionSort[arLength]) {
-			return arLength + 1;
-		}
+		// 내버전
+//		if(Lx > Hx) {
+//			return -1;
+//		}else if (a < selectionSort[arLength]) {
+//			Hx = arLength - 1;
+//		}else{
+//			Lx = arLength + 1;
+//		}
+//			
+//		if(a == selectionSort[arLength]) {
+//			return arLength + 1;
+//		}
 		
 		return search(a, selectionSort, Lx, Hx);
 
@@ -40,6 +47,7 @@ public class BinarySearch {
 		
 		System.out.print("검색 값 입력 : ");
 		int  a = sc.nextInt();
+		sc.close();
 		int t = search(a , selectionSort , 0 , selectionSort.length - 1);
 		if(t > 0) {
 			System.out.printf( "\n검색 값 %d는(은) selectionSort배열 %d 번째 위치에 존재합니다." , a , t);
