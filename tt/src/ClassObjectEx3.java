@@ -1,4 +1,4 @@
-class Tank1 {
+ class Tank1 {
 	String name;
 	int dp;
 	boolean missile;
@@ -22,13 +22,11 @@ class Tank1 {
 	}
 
 	void mis() {
-		strings();
 		if (missile) System.out.println("\n미사일 발사 : 초전박살");
 		else System.out.printf("\n%s 미사일 없음!!!\n", name);
-	}
+	} 
 	
 	void dpIn() {
-		strings();
 		String st = null;
 		
 		switch (this.dp) {
@@ -47,6 +45,7 @@ class Tank1 {
 
 	void allAtt() {
 		if (check) {
+			strings();
 			dpIn();
 			mis();
 		}
@@ -54,6 +53,7 @@ class Tank1 {
 
 	void dpAtt() {
 		if (check) {
+			strings();
 			dpIn();
 		}
 
@@ -61,6 +61,7 @@ class Tank1 {
 
 	void missileAtt() {
 		if (check) {
+			strings();
 			mis();
 		}
 	}
@@ -88,7 +89,7 @@ public class ClassObjectEx3 {
 
 //		tank1.allAtt();
 //		tank2.missileAtt();
-//		tank3.missileAtt();
+		tank3.missileAtt();
 		tank2.dpAtt();
 		tank3.dpAtt();
 //		tank3.allAtt();
