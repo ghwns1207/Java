@@ -40,6 +40,7 @@ class Tank2 {
 
 		System.out.printf("대포발사 : %s\n", boom);
 	}
+	
 
 	private void attackMissile() {
 		System.out.println("미사일 발사 : 초전박살");
