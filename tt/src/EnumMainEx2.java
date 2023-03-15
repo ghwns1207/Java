@@ -31,23 +31,22 @@ enum TankTier {
 //		System.out.printf("미사일 %s장착\n", missile ? "" : "미 ");
 //		System.out.printf("핵미사일 %s장착\n\n", nuclear ? "" : "미 ");
 //	}
-//	
 
 }
 
 class Tank11 {
 	String name;
-	TankTier tanktier;
-	static int count;
-	int countTank;
+	private TankTier tanktier;
+	private static int count;
+	private int countTank = ++count;
+
 	Tank11(String name, TankTier tanktier) {
 		this.name = name;
 		this.tanktier = tanktier;
-		countTank =  ++count;
 	}
 
 	public void Specview() {
-		System.out.printf("< %d번쨰 전차 >\n", countTank);
+		System.out.printf("< %d호 전차 >\n", countTank);
 		System.out.println("탱크명 : " + name);
 //		tanktier.infoTier();
 		System.out.println("티어 : " + tanktier.getTier());
@@ -122,11 +121,11 @@ public class EnumMainEx2 {
 		k1a1.Specview();
 		k1a2.Specview();
 		x2.Specview();
-		
+
 		x2.attHackMissile();
 		x2.attDp();
 		k1a2.attMissile();
-		
+
 		k1.attDp();
 		k1a1.attMissile();
 
