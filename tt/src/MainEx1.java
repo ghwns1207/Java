@@ -1,6 +1,6 @@
 class Storage {
 	int ar[];
-	static int count;
+	int count;
 
 	Storage(int size) {
 		ar = new int[size];
@@ -34,36 +34,36 @@ class Storage {
 	}
 
 	void drop(int... a) {
-		boolean check = true;
+
+		int del = 0;
+		del = 0;
 		System.out.print("\n\n삭제 대상 : ");
 
 		forEachAr(a);
+
 
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < ar.length; j++) {
 				if (ar[j] == a[i]) {
 					ar[j] = 0;
+					for(int idx = j, t; idx < j + (count - j - 1) ; idx++) {
+						t = ar[idx];
+						ar[idx] = ar[idx+1];
+						ar[idx +1] = t;
+					}
+					del++;
 					count--;
-					check = false;
 					break;
 				}
 			}
 		}
 
-		for (int i = 0, t; i < count; i++) {
-			for (int j = i + 1; j < ar.length; j++) {
-				if (ar[i] == 0) {
-					t = ar[i];
-					ar[i] = ar[j];
-					ar[j] = t;
-				}
-			}
-		}
+		if (del == 0)
+			System.out.print("\n삭제하려는 데이터가 존재하지 않습니다.\n");
+		else
+			System.out.printf("\n자료가 %d개 삭제되었습니다, ", del);
 
-		if (check)
-			System.out.print("\n삭제하려는 데이터가 존재하지 않습니다.");
-
-		System.out.printf("\n남은 공간은 %s 입니다.\n", ar.length - count);
+		System.out.printf("남은 공간은 %s 입니다.\n", ar.length - count);
 
 		forEachAr(ar);
 
@@ -92,6 +92,8 @@ public class MainEx1 {
 		first.drop(3, 4);
 		first.drop(3, 4, 6);
 		first.drop(5, 8);
+		first.store(1,2,3,4,5,6,7,8,9,10);
+		first.drop(10);
 
 	}
 
